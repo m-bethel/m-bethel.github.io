@@ -28,27 +28,6 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
-        
-        // In a real application, you would send this data to a server
-        console.log('Form submitted:', data);
-        
-        // Show success message (for demo purposes)
-        alert('Thank you for your interest! We will contact you soon.');
-        
-        // Reset form
-        this.reset();
-    });
-}
-
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
@@ -72,47 +51,19 @@ document.querySelectorAll('.platform-card').forEach((card, index) => {
     observer.observe(card);
 });
 
-// Observe value items
-document.querySelectorAll('.value-item').forEach((item, index) => {
+// Observe strategy cards
+document.querySelectorAll('.strategy-card').forEach((item, index) => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(30px)';
     item.style.transition = `all 0.6s ease ${index * 0.1}s`;
     observer.observe(item);
 });
 
-// Counter animation for stats
-const animateCounter = (element, target, duration = 2000) => {
-    if (!element.textContent.match(/^\d+$/)) return; // Only animate numbers
-    
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-};
-
-// Observe stat cards
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const number = entry.target.querySelector('.stat-number');
-            const targetValue = parseInt(number.textContent);
-            if (!isNaN(targetValue)) {
-                animateCounter(number, targetValue);
-            }
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-card').forEach(card => {
-    statsObserver.observe(card);
+// Observe reflection cards
+document.querySelectorAll('.reflection-card').forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = `all 0.6s ease ${index * 0.15}s`;
+    observer.observe(item);
 });
+

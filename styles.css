@@ -302,6 +302,85 @@ body {
     align-items: start;
 }
 
+.branding-item {
+    margin-bottom: 2.5rem;
+}
+
+.branding-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.color-display {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.color-swatch {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow);
+}
+
+.color-swatch.navy {
+    background: var(--primary);
+}
+
+.color-swatch.gold {
+    background: var(--accent);
+}
+
+.mascot-display {
+    font-size: 5rem;
+    text-align: center;
+    margin: 1rem 0;
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+.slogan-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+.slogan-subtext {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.hero-logo {
+    margin-top: 3rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out 1.2s backwards;
+}
+
+.liberty-bell {
+    font-size: 4rem;
+    display: inline-block;
+    animation: swing 4s ease-in-out infinite;
+}
+
+.logo-caption {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 .about-text {
     font-size: 1.1rem;
 }
@@ -334,6 +413,11 @@ body {
 
 .stat-card:hover {
     transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .stat-number {
@@ -399,76 +483,122 @@ body {
     line-height: 1.7;
 }
 
-/* Values Section */
+/* Campaign Strategy Section */
 .values-section {
     background: var(--white);
 }
 
-.values-grid {
+.campaign-strategy {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
-.value-item {
-    text-align: center;
-    padding: 2rem;
+.strategy-card {
+    background: var(--background);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border-top: 4px solid var(--accent);
+    transition: all 0.3s ease;
 }
 
-.value-icon {
+.strategy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.strategy-icon {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
-    animation: bounce 2s ease-in-out infinite;
+    margin-bottom: 1rem;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.value-item:nth-child(1) .value-icon { animation-delay: 0s; }
-.value-item:nth-child(2) .value-icon { animation-delay: 0.2s; }
-.value-item:nth-child(3) .value-icon { animation-delay: 0.4s; }
-.value-item:nth-child(4) .value-icon { animation-delay: 0.6s; }
-.value-item:nth-child(5) .value-icon { animation-delay: 0.8s; }
-.value-item:nth-child(6) .value-icon { animation-delay: 1s; }
-
-.value-item h3 {
+.strategy-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 1rem;
 }
 
-.value-item p {
+.strategy-card p {
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1.05rem;
 }
 
-/* Contact Section */
+/* Reflection Section */
 .contact-section {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: var(--white);
 }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+.reflection-content {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.contact-text .section-label {
+.section-header.centered {
+    text-align: center;
+}
+
+.contact-text .section-label,
+.section-header.centered .section-label {
     color: var(--accent);
 }
 
-.contact-text .section-title {
+.contact-text .section-title,
+.section-header.centered .section-title {
     color: var(--white);
+}
+
+.reflection-grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.reflection-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 8px;
+    color: var(--text);
+}
+
+.reflection-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.reflection-text p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.reflection-text p strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.instruction-note {
+    background: rgba(201, 145, 77, 0.2);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.instruction-note p {
+    color: var(--white);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.instruction-note strong {
+    color: var(--accent);
 }
 
 .contact-description {
@@ -606,8 +736,7 @@ body {
         gap: 1.5rem;
     }
     
-    .about-content,
-    .contact-content {
+    .about-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
@@ -640,7 +769,7 @@ body {
         text-align: center;
     }
     
-    .values-grid {
+    .campaign-strategy {
         grid-template-columns: 1fr;
     }
     
